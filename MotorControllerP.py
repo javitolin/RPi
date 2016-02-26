@@ -57,4 +57,10 @@ pi.set_PWM_range(Motor1E,100)
 pi.set_PWM_range(Motor2E,100)
 print("Warming up engines")
 print("Starting motors")
-
+ledPin = 21 #PIN 40 
+pi.set_mode(ledPin, pigpio.OUTPUT)
+for i in range(0,3):
+	pi.write(ledPin,pigpio.HIGH)
+	sleep(1)
+	pi.write(ledPin,pigpio.LOW)
+	sleep(1)

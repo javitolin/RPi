@@ -1,4 +1,4 @@
-
+from subprocess import call
 import sys
 from protocol import *
 from MotorControllerP import *
@@ -45,6 +45,12 @@ def StartTCPServer():
 						response = customSpeed(direction,left,right)
 						print(direction+","+left+","+right)
 						conn.send((str(response)+"\n").encode())
+					elif data[:3] == Client.SHUTDOWN:
+						conn.send("Shutdown Received")
+						call(["shutdown", "now"])
+					elif data[:3] == Client.REBOOT:
+						conn.send("Rebbot received")
+						call(["reboot"])
 					else:
 						print("Command not understood: "+data)
 				else:

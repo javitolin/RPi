@@ -14,6 +14,8 @@ class Client:
 	MOVE	  = '200'
 	KTHXBYE   = '300'
 	CUSTOM_MOVE = '400'
+	SHUTDOWN = '500'
+	REBOOT = '600'
 #CUSTOME_MOVE = 400,direction[f,b],left,right
 
 class Server:
